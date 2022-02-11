@@ -1,0 +1,86 @@
+import React from "react";
+import GenFecha from "./Helpers/GenFecha";
+import {
+  LeadingActions,
+  SwipeableList,
+  SwipeableListItem,
+  SwipeAction, 
+  TrailingActions
+} from 'react-swipeable-list'
+
+import "react-swipeable-list/dist/styles.css";
+
+
+import IconoAhorro from '../img/icono_ahorro.svg'
+import IconoCasa from '../img/icono_casa.svg'
+import IconoComida from '../img/icono_comida.svg'
+ 
+import IconoOcio from '../img/icono_ocio.svg'
+import IconoSalud from '../img/icono_salud.svg'
+import IconoSuscripciones from '../img/icono_suscripciones.svg'
+import IconoGasto from '../img/icono_gastos.svg'
+
+
+const diccionarioIconos = {
+
+ahorro: IconoAhorro,  
+casa: IconoCasa, 
+comida: IconoComida, 
+gastos: IconoGasto,
+ocio: IconoOcio,
+salud: IconoSalud,  
+suscripciones: IconoSuscripciones
+
+}
+const Gasto = ({ dataGastos, setGastoEdit,   eliminarGasto  }) => {
+  const {nombre, cantidad, categoria, id, fecha } = dataGastos;
+
+  //IMPORTANTE => Cambiar la funcion : {} cambio por () y significa return (muestra el siguiente componente)
+  const leadingActions = () => (
+    <LeadingActions>
+      <SwipeAction 
+      onClick={()=> setGastoEdit(dataGastos)}
+      
+      >
+        Editar
+      </SwipeAction>
+    </LeadingActions>
+  )
+
+  const trailingActions = () =>(
+    <TrailingActions>
+      <SwipeAction 
+      onClick={()=> eliminarGasto(id)}
+      destructive={true } //Prop de la libreria
+      
+      >
+        Eliminar
+      </SwipeAction>
+    </TrailingActions>
+  )
+
+
+  return (
+    <SwipeableList>
+    <SwipeableListItem 
+    leadingActions={leadingActions()}
+    trailingActions={trailingActions()}
+    > 
+        <div className="gasto sombra">
+      <div className="contenido-gasto">
+      <img src={diccionarioIconos[categoria]} alt='imagen'/>
+
+        <div className="descripcion-gasto">
+          <p className="categorias">{categoria}</p>
+          <p className="nombre-gasto">{nombre}</p>
+          <p className="fecha-gasto">Agregado el : {''} <span>{GenFecha(fecha)}</span></p>
+        </div>
+      </div>
+        <p className="cantidad-gasto">${cantidad}</p>
+    </div>
+    </SwipeableListItem>
+    </SwipeableList>
+  );
+};
+
+export default Gasto;
