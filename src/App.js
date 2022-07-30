@@ -137,7 +137,7 @@ const [gastosFitrados, setGastosFitrados] = useState([]);
             />
           </main>
           <div className="nuevo-gasto">
-            <img src={AddGasto} onClick={handleNuevoGasto} />
+            <img src={AddGasto} onClick={handleNuevoGasto} alt="" />
           </div>
         </>
       )}

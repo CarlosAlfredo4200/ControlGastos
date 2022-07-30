@@ -1,16 +1,16 @@
 :root {
-    --azul: #3b82f6;
-    --blanco: #ffffff;
-    --gris-claro: #dddddd;
-    --gris: #94a3b8;
-    --gris-oscuro: #64748b;
+    --azul: #0c2246;
+    --blanco: #ccc9c9;
+    --gris-claro: #a8a7a7;
+    --gris: #1e2031;
+    --gris-oscuro: #6d0981;
     --negro: #000;
 }
 
 body {
     font-size: 1.6rem;
     font-family: "Lato", sans-serif;
-    background-color: var(--gris-claro);
+    background-image: linear-gradient(to bottom, var(--gris) 10%, var(--gris-oscuro) 40%, var(--negro) 90% );
 }
 html {
     font-size: 62.5%;
@@ -28,7 +28,7 @@ html {
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 3rem;
 }
 h2 {
     font-size: 3rem;
@@ -45,6 +45,8 @@ h2 {
 
 header {
     background-color: var(--azul);
+    border-end-end-radius:500px ;
+    border-top-left-radius: 400px;
 }
 
 header h1 {
@@ -57,9 +59,9 @@ header h1 {
 }
 
 .formulario {
-    width: 95%;
+    
     margin: 0 auto;
-    padding: 10rem 0;
+    padding: 5rem 0;
 }
 @media (min-width: 768px) {
     .formulario {
@@ -76,6 +78,7 @@ header h1 {
     margin-bottom: 4rem;
     padding-bottom: 1rem;
     border-bottom: 2px solid var(--azul);
+    background-color: red;
 }
 .formulario .campo {
     display: grid;
@@ -87,12 +90,13 @@ header h1 {
     font-size: 2.8rem;
     text-align: center;
     margin-bottom: 2rem;
+     
 }
 
 .formulario input[type="text"],
 .formulario input[type="number"] {
     background-color: var(--gris-claro);
-    border-radius: 1rem;
+    border-radius: 5px;
     padding: 1rem;
     border: none;
     flex: 1;
@@ -101,6 +105,7 @@ header h1 {
 .formulario input[type="submit"] {
     background-color: #1048a4;
     border: none;
+    border-radius: 5px;
     padding: 1rem;
     text-align: center;
     margin-top: 2rem;
@@ -111,6 +116,20 @@ header h1 {
     width: 100%;
     transition: background-color 300ms ease;
 }
+
+.campo{
+     display: flex;
+     justify-content: space-between;
+     flex-wrap: wrap;     
+}
+
+.box{
+    margin: 0 auto;
+}
+
+ 
+ 
+ 
 @media (min-width: 768px) {
     .formulario input[type="submit"] {
         display: block;
@@ -120,6 +139,7 @@ header h1 {
 .formulario input[type="submit"]:hover {
     background-color: #042a67;
     cursor: pointer;
+    
 }
 
 .formulario select {
@@ -145,8 +165,7 @@ header h1 {
     border-left: 5px solid #b91c1c;
     color: #b91c1c;
 }
-.alerta.success {
-}
+ 
 
 .contenedor {
     width: 90%;
@@ -159,9 +178,11 @@ header h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     transform: translateY(5rem);
 }
+
+
+ 
 .dos-columnas {
     flex-direction: column;
 }
@@ -184,7 +205,18 @@ header h1 {
 .formulario input[type="text"].nuevo-presupuesto, 
 .formulario input[type="number"].nuevo-presupuesto {
     font-size: 2.8rem;
+    max-width: 250px;
+    
     text-align: center;
+}
+
+@media (min-width: 768px){
+
+    .formulario input[type="text"].nuevo-presupuesto, 
+    .formulario input[type="number"].nuevo-presupuesto {
+        width: 600px; 
+        max-width: 100%;    
+}
 }
 
 .contenedor-presupuesto svg {

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Cerrar from "../img/cerrar.svg";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 const ControlPresupuesto = ({
